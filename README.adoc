@@ -1,0 +1,69 @@
+# docker-commands
+
+This projects is used for Docker commands documentation
+
+## Docker documentation and download
+
+* link:https://www.docker.com/products/overview[Download Docker]
+* link:https://www.docker.com/what-docker[What is docker?]
+* link:https://hub.docker.com/[Docker hub]
+
+### Run
+  $ docker run --name phoenix-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7.13 -p 3306:3306
+  
+  $ docker run --name myKafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST='192.168.99.100' --env ADVERTISED_PORT=9092 spotify/kafka
+  
+  $ docker run -it --rm --name trace-eater -p 8080:8080 trace-eater
+  
+### Pull, get a docker image
+
+  $ docker pull mongo
+  
+### Ps, get
+
+  $ docker ps
+  $ docker ps -all
+  
+### Exec, run a bash to this image
+
+  $ docker exec -it myImage /bin/bash
+  
+### Build, you must hava a docker file
+
+  $ docker build -t myImage .
+
+## Example, complete example
+
+  * Get docker
+  
+  $ docker pull spotify/kafka
+  
+  * Run docker
+  
+  $ docker run --name myKafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST='192.168.99.100' --env ADVERTISED_PORT=9092 spotify/kafka
+
+  * Start docker 
+  
+  $ docker start myKafka
+
+  * See containers 
+  
+  $ docker ps
+
+  * Bash access to this image, with id or name
+  
+  $ docker exec -it f643274361a3 /bin/bash
+  $ docker exec -it myKafka /bin/bash
+  
+  * Run script in this image after docker exec
+  
+  kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+## Docker-machine
+
+### Create, create a new docker machine with proxy
+
+  docker-machine create -d virtualbox --engine-env HTTP_PROXY=http://user:password@proxy:8080 --engine-env HTTPS_PROXY=http://user:password@proxy:8080 --engine-env NO_PROXY=.corp --engine-insecure-registry newRegistry default-proxy
+  
+### Env, add environment viables after create docker-machine
+
+  docker-machine env default-proxy
