@@ -64,6 +64,8 @@ This projects is used for Docker commands documentation
 
   docker-machine create -d virtualbox --engine-env HTTP_PROXY=http://user:password@proxy:8080 --engine-env HTTPS_PROXY=http://user:password@proxy:8080 --engine-env NO_PROXY=.corp --engine-insecure-registry newRegistry default-proxy
   
+  * Some docker calculate the docker memory, and it may be a big memory use -m param (-m 512M).
+  
 ### Env, add environment viables after create docker-machine
 
   docker-machine env default-proxy
