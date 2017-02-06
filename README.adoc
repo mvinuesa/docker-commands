@@ -69,3 +69,24 @@ This projects is used for Docker commands documentation
 ### Env, add environment viables after create docker-machine
 
   docker-machine env default-proxy
+  
+### Run two node processes in one docker
+
+----
+FROM node:7.4.0
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app
+RUN npm install
+COPY . /usr/src/app
+EXPOSE 4000
+EXPOSE 3000
+CMD [ "/bin/bash", "start.sh" ]
+----
+
+Must run in background with '&'
+
+----
+npm start &
+npm start -- --port 3000
+----
