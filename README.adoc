@@ -90,3 +90,15 @@ Must run in background with '&'
 npm start &
 npm start -- --port 3000
 ----
+
+## Create a network
+
+Sometimes you want to communicate several instances of docker, but working with ip is a headache, for it between docker who want to communicate, creates a network, creating a DNS with the name of the image, being simpler communication between The Docker.
+
+With *--network* we assign a network to the docker instance
+
+----
+docker network create mynetwork
+
+docker run -p 2181:2181 -p 9092:9092 --name mykafka --env ADVERTISED_HOST=mykafka --env ADVERTISED_PORT=9092 --network=mynetwork spotify/kafka
+----
