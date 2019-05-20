@@ -102,3 +102,17 @@ docker network create mynetwork
 
 docker run -p 2181:2181 -p 9092:9092 --name mykafka --env ADVERTISED_HOST=mykafka --env ADVERTISED_PORT=9092 --network=mynetwork spotify/kafka
 ----
+
+### Prune
+
+* link:https://docs.docker.com/engine/reference/commandline/system_prune/[Docker Prune]
+
+----
+docker image prune
+docker container prune
+docker volume prune
+docker network prune
+docker system prune
+docker system prune --force
+----
+
