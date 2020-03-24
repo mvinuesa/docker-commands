@@ -31,6 +31,10 @@ This projects is used for Docker commands documentation
 ### Build, you must hava a docker file
 
   $ docker build -t myImage .
+  
+### Tag, rename a docker image with other name
+
+  $ docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
 ## Example, complete example
 
